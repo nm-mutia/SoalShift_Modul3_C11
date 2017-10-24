@@ -42,7 +42,7 @@ int main(void)
 	x++;
 	if(T == '\n') break;
     }
-    for(a=0; a<x; a++){
+    /*for(a=0; a<x; a++){
 	for(b=a+1; b<x; b++){
 	    if(bil[a] > bil[j]){
 		temp = bil[a];
@@ -50,15 +50,9 @@ int main(void)
 		bil[b] = temp;
 	    }
 	}
-    }
+    }*/
     while(i<=x){
-        err = pthread_create(&(tid[i]),NULL,&faktorial,NULL);
-       /* if(err != 0){
-            printf("can't create thread : [%s]\n",strerror(err));
-        }
-        else{
-            printf("create thread %d success\n",i+1);
-        } */
+        pthread_create(&(tid[i]),NULL,&faktorial,NULL);
         i++;
     }
     for(j=0; j<=x; j++){
