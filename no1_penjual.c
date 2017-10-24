@@ -65,7 +65,7 @@ printf("Jumlah MINE = %d\n", data->MINE);
 }
 
 else if(menu == 2){
-printf("PILIH BARANG YANG INGIN DITAMBAHKAN!\n");
+printf("KETIK NAMA BARANG YANG INGIN DITAMBAHKAN!\n");
 printf("1. MP4A1\n2. PM2-V1\n3. SPR-3\n4. SS2-V5\n5. SPG1-V3\n6. MINE\n");
 printf(">> ");
 scanf("%s", nama_barang);
