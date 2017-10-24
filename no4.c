@@ -15,7 +15,7 @@ void* faktorial(void *arg)
     pthread_t id = pthread_self();
     int fak, j, k;
 
-    for(k=0; k<=x+1; k++){
+    for(k=0; k<x; k++){
 	fak = 1;
 	if(pthread_equal(id,tid[k]))
 	{
@@ -38,16 +38,16 @@ int main(void)
     while(1){
 	scanf("%d",&N);
 	scanf("%c",&T);
-	if(T == '\n') break;
 	bil[x] = N;
 	x++;
+	if(T == '\n') break;
     }
     for(a=0; a<x; a++){
-	for(b=0; b<x-a; b++){
-	    if(bil[b] > bil[b+1]){
-		temp = bil[b];
-		bil[b] = bil[b+1];
-		bil[b+1] = temp;
+	for(b=a+1; b<x; b++){
+	    if(bil[a] > bil[j]){
+		temp = bil[a];
+		bil[a] = bil[b];
+		bil[b] = temp;
 	    }
 	}
     }
