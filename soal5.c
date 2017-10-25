@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 int x;
-char word[50];
+char *word[50];
 pthread_t tid[50];
 
 void* find(void *arg)
