@@ -26,7 +26,7 @@ int sharedID;
 struct Memory *data;
 int menu;
 char nama_barang[99];
-int tambahan;
+int total;
 
 sharedKEY = ftok("#", 'A');
 sharedID = shmget(sharedKEY, sizeof(struct Memory), IPC_CREAT | 0666);
@@ -65,53 +65,70 @@ printf("Jumlah MINE = %d\n", data->MINE);
 }
 
 else if(menu == 2){
-printf("KETIK NAMA BARANG YANG INGIN DIBELI!\n");
+printf("\nPILIH BARANG YANG INGIN DIBELI!\n");
+printf("FORMAT INPUT : [NAMA_BARANG] [JUMLAH_BARANG]\n");
 printf("1. MP4A1\n2. PM2-V1\n3. SPR-3\n4. SS2-V5\n5. SPG1-V3\n6. MINE\n");
 printf(">> ");
-scanf("%s", nama_barang);
+scanf("%s %d", nama_barang, &total);
 
 if (strcmp(nama_barang,"MP4A1")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->MP4A1 -= tambahan;
-printf("Jumlah stock MP4A1 = %d \n", data->MP4A1);
+ if (total > data->MP4A1){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->MP4A1 -= total;
+ }
 }
 
 if (strcmp(nama_barang,"PM2-V1")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->PM2_V1 -= tambahan;
-printf("Jumlah stock PM2-V1 = %d \n", data->PM2_V1);
+ if (total > data->PM2_V1){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->PM2_V1 -= total;
+ }
+
 }
 
 if (strcmp(nama_barang,"SPR-3")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->SPR_3 -= tambahan;
-printf("Jumlah stock SPR-3 = %d \n", data->SPR_3);
+ if (total > data->SPR_3){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->SPR_3 -= total;
+ }
 }
 
 if (strcmp(nama_barang,"SS2-V5")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->SS2_V5 -= tambahan;
-printf("Jumlah stock SS2-V5 = %d \n", data->SS2_V5);
+ if (total > data->SS2_V5){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->SS2_V5 -= total;
+ }
 }
 
 if (strcmp(nama_barang,"SPG1-V3")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->SPG1_V3 -= tambahan;
-printf("Jumlah stock SPG1-V3 = %d \n", data->SPG1_V3);
+ if (total > data->SPG1_V3){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->SPG1_V3 -= total;
+ }
+
 }
 
 if (strcmp(nama_barang,"MINE")==0){
-printf("Jumlah barang yang ingin dibeli: ");
-scanf("%d",&tambahan);
-data->MINE -= tambahan;
-printf("Jumlah stock MINE = %d \n", data->MINE);
+ if (total > data->MINE){
+ printf("Barang di stock tidak cukup\n");
+ }
+ else{
+ data->MINE -= total;
+ }
 }
 
+
+}
 
 else{
 return 0;
@@ -119,8 +136,4 @@ return 0;
 
 getchar();
 }
-
-
 }
-}
-
