@@ -17,14 +17,34 @@ hole ho;
 
 void* playandcount(void *arg)
 {
-    int i;
+    int i, count1=0, count2=0;
     pthread_t id = pthread_self();
 
        	if(pthread_equal(id,tid[0])){
-	   
+		ho.poin1;
+		for(i=0; i<16; i++){
+			if(ho.lubang1[i] == 1) count1++;
+		}
+		if(count1 == 16 && count2 == 16) {
+			printf("SERI\n");	
+			exit(EXIT_FAILURE;		
+		}
+		else if(ho.point1 == 10){
+			printf("Pemain1 menang : skor = 10\n")	
+		}
     	}
 	else if(pthread_equal(id,tid[1]){
-	   
+	 	ho.poin2;
+		for(i=0; i<16; i++){
+			if(ho.lubang2[i] == 1) count2++;
+		}
+		if(count2 == 16 && count2 == 16) {
+			printf("SERI\n");		
+			exit(EXIT_FAILURE;		
+		}
+		else if(ho.point2 == 10){
+			printf("Pemain2 menang : skor = 10\n")	
+		}
     	}
     
     return NULL;
@@ -32,7 +52,7 @@ void* playandcount(void *arg)
 
 int main()
 {
-    int giliran, holes, lub, teb;
+    int giliran, holes, lub, teb, i;
     giliran = 1;
     for(i=0; i<16; i++){
 	ho.lubang1[i] = 0;//pemain1
@@ -47,11 +67,11 @@ int main()
 		scanf("%d",&lub);
 		ho.lubang1[lub-1] = 1;
 	   }
-	   printf("Tebak : ");
+	   printf("Tebak : \n");
 	   for(i=0; i<holes; i++){
 	   	scanf("%d",&teb);
 	   	if(ho.lubang1[teb-1] == 1) ho.poin1++;
-		else pho.oin2++;
+		else ho.poin2++;
 	   }
 	   giliran++;
 	}
@@ -62,7 +82,7 @@ int main()
 		scanf("%d",&lub);
 		ho.lubang2[lub-1] = 1;
 	   }
-	   printf("Tebak : ");
+	   printf("Tebak :\n ");
 	   for(i=0; i<holes; i++){
 	   	scanf("%d",&teb);
 	   	if(ho.lubang2[teb-1] == 1) ho.poin2++;
