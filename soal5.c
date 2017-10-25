@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 int x;
-char *word[50];
+char *word[100];
 pthread_t tid[50];
 
 void* find(void *arg)
@@ -19,15 +19,15 @@ void* find(void *arg)
 	if(pthread_equal(id,tid[k]))
 	{
 	   FILE *novel;
-    	   char read[300];
+    	   char read[1000];
 	   novel = fopen("Novel.txt", "r");
 
 	   while(!feof(novel)){
 		fscanf(novel, "%s", read);
-		if(strcmp(read, word[k]) == 0) num++;
+		if(strstr(read, word[k]) != NULL) num++;
 	   }
-	   printf("%s = %d \n", word[k], num);
 	   fclose(novel);
+	   printf("%s = %d\n", word[k], num);
 	}
     }
     return NULL;
