@@ -15,10 +15,8 @@ fishy fis;
 
 void* playandcount(void *arg)
 {
-    int i;
     pthread_t id = pthread_self();
 
-    int fak, j, k;
     while(fis.statl <= 100|| fis.statk <= 100 || fis.statl > 0 || fis.statk > 0)
     {	
        	if(pthread_equal(id,tid[0])){
