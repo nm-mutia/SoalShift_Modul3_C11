@@ -19,9 +19,8 @@ void* faktorial(void *arg)
 	fak = 1;
 	if(pthread_equal(id,tid[k]))
 	{
-	   for(i=0; i<bil[k]; i++){
+	   for(i=0; i<bil[k]; i++)
 		fak = fak * (i+1);
-	   }
 	   printf("Hasil %d! = %lld \n",bil[k],fak);
 	}
     }
@@ -33,8 +32,8 @@ int main(int argc, char **argv)
     int i=0, j, err, rings;
     x=0;
     while(1){
-	if(argv[x+1] == NULL) break; //argv[0]=runx
-	rings = atoi(argv[x+1]); //atoi=convert char to int
+	if(argv[x+1] == NULL) break;
+	rings = atoi(argv[x+1]); //atoi convert char to int
 	bil[x] = rings;
 	x++;
     }
