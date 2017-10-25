@@ -29,28 +29,24 @@ void* faktorial(void *arg)
     return NULL;
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
     int i=0, j, temp=0;
     int err, a, b, N;
     char T;
+    int rings;
     x=0;
+    //if(argc != 2){
+    //}
     while(1){
-	scanf("%d",&N);
-	scanf("%c",&T);
-	bil[x] = N;
+	//scanf("%d",&argv[x]);
+	//scanf("%c",&T);
+	//bil[x] = argv[x];
+	if(argv[x] == NULL) break;
+	rings = atoi(argv[x]); //atoi=convert char to int
+	bil[x] = rings;
 	x++;
-	if(T == '\n') break;
     }
-    /*for(a=0; a<x; a++){
-	for(b=a+1; b<x; b++){
-	    if(bil[a] > bil[j]){
-		temp = bil[a];
-		bil[a] = bil[b];
-		bil[b] = temp;
-	    }
-	}
-    }*/
     while(i<=x){
         pthread_create(&(tid[i]),NULL,&faktorial,NULL);
         i++;
