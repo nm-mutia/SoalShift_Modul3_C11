@@ -27,23 +27,23 @@ void* playandcount(void *arg)
 		}
 		if(count1 == 16 && count2 == 16) {
 			printf("SERI\n");	
-			exit(EXIT_FAILURE;		
+			exit(EXIT_FAILURE);		
 		}
-		else if(ho.point1 == 10){
-			printf("Pemain1 menang : skor = 10\n")	
+		else if(ho.poin1 == 10){
+			printf("Pemain1 menang : skor = 10\n")	;
 		}
     	}
-	else if(pthread_equal(id,tid[1]){
+	else if(pthread_equal(id,tid[1])){
 	 	ho.poin2;
 		for(i=0; i<16; i++){
 			if(ho.lubang2[i] == 1) count2++;
 		}
 		if(count2 == 16 && count2 == 16) {
 			printf("SERI\n");		
-			exit(EXIT_FAILURE;		
+			exit(EXIT_FAILURE);		
 		}
-		else if(ho.point2 == 10){
-			printf("Pemain2 menang : skor = 10\n")	
+		else if(ho.poin2 == 10){
+			printf("Pemain2 menang : skor = 10\n");	
 		}
     	}
     
