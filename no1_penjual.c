@@ -56,12 +56,33 @@ scanf("%d", &menu);
 
 if (menu == 1)
 {
-printf("Jumlah MP4A1 = %d\n", data->MP4A1);
-printf("Jumlah PM2-V1 = %d\n", data->PM2_V1);
-printf("Jumlah SPR-3 = %d\n", data->SPR_3);
-printf("Jumlah SS2-V5 = %d\n", data->SS2_V5);
-printf("Jumlah SPG1-V3 = %d\n", data->SPG1_V3);
-printf("Jumlah MINE = %d\n", data->MINE);
+ if(data->MP4A1>0){
+ printf("Jumlah MP4A1 = %d\n", data->MP4A1);
+ }
+
+ if(data->PM2_V1>0){
+ printf("Jumlah PM2-V1 = %d\n", data->PM2_V1);
+ }
+
+ if(data->SPR_3>0){
+ printf("Jumlah SPR-3 = %d\n", data->SPR_3);
+ }
+
+ if(data->SS2_V5>0){
+ printf("Jumlah SS2-V5 = %d\n", data->SS2_V5);
+ }
+
+ if(data->SPG1_V3){
+ printf("Jumlah SPG1-V3 = %d\n", data->SPG1_V3);
+ }
+
+ if(data->MINE){
+ printf("Jumlah MINE = %d\n", data->MINE);
+ }
+
+ else{
+ printf("STOK SEMUA KOSONG\n\n");
+ }
 }
 
 else if(menu == 2){
