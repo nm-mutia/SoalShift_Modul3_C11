@@ -11,9 +11,9 @@ pthread_t tid[100];
 
 void* faktorial(void *arg)
 {
-    int i;
+    int i, k;
     pthread_t id = pthread_self();
-    int fak, j, k;
+    long long int fak;
 
     for(k=0; k<x; k++){
 	fak = 1;
@@ -22,8 +22,7 @@ void* faktorial(void *arg)
 	   for(i=0; i<bil[k]; i++){
 		fak = fak * (i+1);
 	   }
-	   
-	   printf("hasil %d! = %d \n",bil[k], fak);
+	   printf("Hasil %d! = %lld \n",bil[k],fak);
 	}
     }
     return NULL;
@@ -31,27 +30,19 @@ void* faktorial(void *arg)
 
 int main(int argc, char **argv)
 {
-    int i=0, j, temp=0;
-    int err, a, b, N;
-    char T;
-    int rings;
+    int i=0, j, err, rings;
     x=0;
-    //if(argc != 2){
-    //}
     while(1){
-	//scanf("%d",&argv[x]);
-	//scanf("%c",&T);
-	//bil[x] = argv[x];
-	if(argv[x] == NULL) break;
-	rings = atoi(argv[x]); //atoi=convert char to int
+	if(argv[x+1] == NULL) break; //argv[0]=runx
+	rings = atoi(argv[x+1]); //atoi=convert char to int
 	bil[x] = rings;
 	x++;
     }
-    while(i<=x){
+    while(i<x){
         pthread_create(&(tid[i]),NULL,&faktorial,NULL);
         i++;
     }
-    for(j=0; j<=x; j++){
+    for(j=0; j<x; j++){
 	pthread_join(tid[j],NULL);
     }
     return 0;
