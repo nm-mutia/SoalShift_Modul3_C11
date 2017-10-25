@@ -17,18 +17,24 @@ void* playandcount(void *arg)
 {
     pthread_t id = pthread_self();
 
-    while(fis.statl <= 100|| fis.statk <= 100 || fis.statl > 0 || fis.statk > 0)
+    while(1)
     {	
-       	if(pthread_equal(id,tid[0])){
-	   sleep(10);
-	   fis.statl -= 15;
-	   printf("10s Status Lohan : %d\n",fis.statl);
-    	}
-	else if(pthread_equal(id,tid[1])){
-	   sleep(20);
-	   fis.statk -= 10;
-	   printf("20s Status Kepiting : %d\n",fis.statk);
-    	}
+	if(fis.statl <= 100 || fis.statk <= 100 || fis.statl > 0 || fis.statl > 0)
+	{
+	       	if(pthread_equal(id,tid[0])){
+		   if(fis.statl <= 0 || fis.statl > 100) exit(EXIT_SUCCESS);
+		   sleep(10);
+		   fis.statl -= 15;
+		   printf("10s Status Lohan : %d\n",fis.statl);
+	    	}
+		else if(pthread_equal(id,tid[1])){
+		   if(fis.statk <= 0 || fis.statk > 100) exit(EXIT_SUCCESS);
+		   sleep(20);
+		   fis.statk -= 10;
+		   printf("20s Status Kepiting : %d\n",fis.statk);
+	    	}
+	}
+	else exit(EXIT_FAILURE);
     }
     return NULL;
 }
@@ -46,10 +52,9 @@ int main()
 
     err1 = pthread_create(&(tid[0]), NULL, &playandcount, NULL);
     err2 = pthread_create(&(tid[1]), NULL, &playandcount, NULL);
-    if (err1 != 0)
-    	printf("\ncan’t create thread : [%s]", strerror(err1));
-    if (err2 != 0)
-    	printf("\ncan’t create thread : [%s]", strerror(err2));
+
+    if (err1 != 0) printf("\ncan’t create thread : [%s]", strerror(err1));
+    if (err2 != 0) printf("\ncan’t create thread : [%s]", strerror(err2));
 
     while(1){
     	scanf("%d", &comm);
@@ -60,9 +65,12 @@ int main()
 	else if(comm == 2){
 	   fis.statk += 10;
 	   printf("Status Kepiting : %d\n",fis.statk);
-	}
-	if(fis.statl > 100|| fis.statk > 100 || fis.statl <= 0 || fis.statk <= 0)
-	   break;
+	} 
+	//pthread_create(&(tid[comm+1]), NULL, &playandcount, NULL);
+	//if(fis.statl > 100|| fis.statk > 100 || fis.statl <= 0 || fis.statk <= 0)
+	  // exit(EXIT_FAILURE);
     }
+    pthread_join(tid[0],NULL);
+    pthread_join(tid[1],NULL);
     return 0;
 }
