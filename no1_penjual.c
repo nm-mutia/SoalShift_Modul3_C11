@@ -65,61 +65,48 @@ printf("Jumlah MINE = %d\n", data->MINE);
 }
 
 else if(menu == 2){
-printf("KETIK NAMA BARANG YANG INGIN DITAMBAHKAN!\n");
+printf("\nPILIH BARANG YANG INGIN DITAMBAHKAN!\n");
+printf("FORMAT INPUT : [NAMA_BARANG] [JUMLAH_BARANG]\n");
 printf("1. MP4A1\n2. PM2-V1\n3. SPR-3\n4. SS2-V5\n5. SPG1-V3\n6. MINE\n");
 printf(">> ");
-scanf("%s", nama_barang);
+scanf("%s %d", nama_barang, &tambahan);
 
 if (strcmp(nama_barang,"MP4A1")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->MP4A1 += tambahan;
 printf("Jumlah stock MP4A1 = %d \n", data->MP4A1);
 }
 
 if (strcmp(nama_barang,"PM2-V1")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->PM2_V1 += tambahan;
 printf("Jumlah stock PM2-V1 = %d \n", data->PM2_V1);
 }
 
 if (strcmp(nama_barang,"SPR-3")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->SPR_3 += tambahan;
 printf("Jumlah stock SPR-3 = %d \n", data->SPR_3);
 }
 
 if (strcmp(nama_barang,"SS2-V5")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->SS2_V5 += tambahan;
 printf("Jumlah stock SS2-V5 = %d \n", data->SS2_V5);
 }
 
 if (strcmp(nama_barang,"SPG1-V3")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->SPG1_V3 += tambahan;
 printf("Jumlah stock SPG1-V3 = %d \n", data->SPG1_V3);
 }
 
 if (strcmp(nama_barang,"MINE")==0){
-printf("Jumlah barang yang ingin ditambah: ");
-scanf("%d",&tambahan);
 data->MINE += tambahan;
 printf("Jumlah stock MINE = %d \n", data->MINE);
 }
-
+}
 
 else{
 return 0;
 }
 
 getchar();
-}
-
 
 }
 }
